@@ -17,7 +17,7 @@
          <br />
          <input type = "submit" value = "Submit" />
       </form>
-      <!--POST localhost/webappsample/user?firstName=asd&lastName=qwe&birthdate=1234-12-12&male=true -->
+      <!--POST localhost:8090/webappsample/user?firstName=asd&lastName=qwe&birthdate=1234-12-12&male=true -->
    </body>
 </html>
 

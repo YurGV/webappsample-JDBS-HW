@@ -38,19 +38,14 @@ public class UserService {
 		List<User> result = new ArrayList<User>();
 		try (Connection conn = DBUtils.getConnetion(); Statement stmt = conn.createStatement()) {
 			ResultSet rs = stmt.executeQuery(SQL.SELECT_ALL);
-
 			while (rs.next()) {
-
 				User user = mapRawToUser(rs);
-
 				result.add(user);
 			}
-
 			rs.close();
 		} catch (Exception e) {
 			LOGGER.error("Something went wrong...", e);
 		}
-
 		return result;
 	}
 
@@ -79,7 +74,6 @@ public class UserService {
 		} catch (Exception e) {
 			LOGGER.error("Something went wrong...", e);
 		}
-
 	};
 
 	public void addUser(User user) {
@@ -103,5 +97,24 @@ public class UserService {
 			LOGGER.error("Something went wrong...", e);
 		}
 	}
+	public void edit(Integer number, User user) {
+		try (Connection conn = DBUtils.getConnetion();
+			 PreparedStatement stmt = conn.prepareStatement(SQL.EDIT)) {
 
+			stmt.setString(1, user.getFirstName());
+			stmt.setString(2, user.getLastName());
+			stmt.setDouble(3, user.getSalary());
+			stmt.setTimestamp(4,
+					Timestamp.valueOf(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS").format(user.getBirthdate())));
+			stmt.setBoolean(5, user.isMale());
+			stmt.setInt(6, number);
+
+			stmt.executeUpdate();
+
+			LOGGER.info("User edit with id: ");
+
+		} catch (Exception e) {
+			LOGGER.error("Something went wrong...", e);
+		}
+	}
 }

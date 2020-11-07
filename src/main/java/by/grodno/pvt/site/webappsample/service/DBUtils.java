@@ -14,10 +14,8 @@ public class DBUtils {
 
 		Class.forName(dp.getString("driver"));
 
-		Connection connection = DriverManager.getConnection(dp.getString("url"), dp.getString("username"),
-				dp.getString("password"));
+		Connection connection = DriverManager.getConnection(dp.getString("url"), dp.getString("username"),dp.getString("password"));
 
 		return connection;
 	}
-
 }

@@ -12,9 +12,9 @@
 
 	<%@ include file="fragments/header.jsp"%>
 
-	<a href="http://localhost/webappsample/hello">Bla bla</a>
+	<a href="http://localhost:8090/webappsample/hello">Bla bla</a>
 	<br />
-	<a href="http://localhost/webappsample/hello2">Bla bla2</a>
+	<a href="http://localhost:8090/webappsample/hello2">Bla bla2</a>
 	<br />
 	<%=new java.util.Date()%>
 	<br />
@@ -33,14 +33,9 @@
 	<br />
 	<br />
 
-
 	<c:out value="${sessionScope.data1}" />
 
-
 	<с:set var="salary" scope="session" value="100" />
-
-	
-
 
 </body>
 </html>

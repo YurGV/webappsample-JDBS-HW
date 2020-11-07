@@ -17,7 +17,7 @@ public class JstlServlet2 extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			User user = new User(null, 
+			User user = new User(null, 						//Integer.parseInt(req.getParameter("id")),
 					             req.getParameter("firstName"), 
 					             req.getParameter("lastName"),
 					             new SimpleDateFormat("yyy-MM-dd")
